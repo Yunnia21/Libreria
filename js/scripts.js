@@ -8,7 +8,12 @@ class Libro {
         this.img = img;       
     }
 }
+const librero = [];
+if (localStorage.librero != null) {
+    librero = JSON.parse(localStorage.librero);
+    document.getElementById("librosAgregados").innerHTML= librero.length;
 
+}
 const libro_1 = new Libro("El Pato y la Muerte", "Wolf Erlbruch", "Barbara Fiore", 32, "./img/pato.png")
 const libro_2 = new Libro("La Cosa Perdida", "Shaun Tan","Barbara Fiore", 35, "./img/cosaperdida.jpg");
 const libro_3 = new Libro("¡Qué Bonito es Panamá!", "Janosch", "Kalandraka", 52, "./img/panama.jpg");
@@ -16,7 +21,7 @@ const libro_4 = new Libro("Perdido y Encontrado", "Oliver Jeffers", "Fondo de Cu
 const libro_5 = new Libro("Alex Quiere un Dinosaurio", "Satoshi Kitamura y Hiawyn Oram", "Fondo de Cultura Económica", 25, "./img/alex.jpg");
 
 const inventario = [libro_1, libro_2, libro_3, libro_4, libro_5];
-const librero = [];
+
 
 
 let acumulador = ``;
@@ -47,11 +52,16 @@ document.getElementById("aLeer").innerHTML=acumulador
 
 
 function libreria(nombre){
+    const libroEncontrado = inventario.find(Libro => Libro.nombre === nombre);
+    if (libroEncontrado != undefined) {
+        librero.push(libroEncontrado);
+    } else {
+        alert("No se encontró")
+    }
     
-    librero.push(nombre)
-
-    alert("Agregado a tu Librería")
+    localStorage.libreria = JSON.stringify(librero);
     document.getElementById("librosAgregados").innerHTML= librero.length;
+    
 }
 document.getElementById("fondo").style.color="purple";
 document.getElementById("cambioTxt").innerHTML="Hice este cambio por si era necesario hacer otra cosa"
