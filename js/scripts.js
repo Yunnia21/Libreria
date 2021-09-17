@@ -11,7 +11,8 @@ class Libro {
 const librero = [];
 if (localStorage.librero != null) {
     librero = JSON.parse(localStorage.librero);
-    document.getElementById("librosAgregados").innerHTML= librero.length;
+    $("#librosAgregados").html(librero.length)
+    //document.getElementById("librosAgregados").innerHTML= librero.length;
 
 }
 const libro_1 = new Libro("El Pato y la Muerte", "Wolf Erlbruch", "Barbara Fiore", 32, "./img/pato.png")
@@ -48,7 +49,8 @@ inventario.forEach((libro) => {
     </div>
 </div>`
 })
-document.getElementById("aLeer").innerHTML=acumulador
+$("#aLeer").html(acumulador)
+//document.getElementById("aLeer").innerHTML=acumulador
 
 
 function libreria(nombre){
@@ -60,8 +62,10 @@ function libreria(nombre){
     }
     
     localStorage.libreria = JSON.stringify(librero);
-    document.getElementById("librosAgregados").innerHTML= librero.length;
+    $("#librosAgregados").html(librero.length)
+    //document.getElementById("librosAgregados").innerHTML= librero.length;
     
 }
+$("#cambioTxt").html("Nuevo cambio")
 document.getElementById("fondo").style.color="purple";
-document.getElementById("cambioTxt").innerHTML="Hice este cambio por si era necesario hacer otra cosa"
+//document.getElementById("cambioTxt").innerHTML="Hice este cambio por si era necesario hacer otra cosa"
