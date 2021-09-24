@@ -63,9 +63,9 @@ function libreria(nombre){
     
     localStorage.libreria = JSON.stringify(librero);
     $("#librosAgregados").html(librero.length)
-    //document.getElementById("librosAgregados").innerHTML= librero.length;
-    
+    //document.getElementById("librosAgregados").innerHTML= librero.length;    
 }
-$("#cambioTxt").html("Nuevo cambio")
-document.getElementById("fondo").style.color="purple";
-//document.getElementById("cambioTxt").innerHTML="Hice este cambio por si era necesario hacer otra cosa"
+$.getJSON("users.json",function(res){
+    console.log(res)
+   
+})
